@@ -35,12 +35,6 @@ export default function Contact() {
             GitHub
           </a>
         </div>
-
-        <div className="border-t border-cool-brown pt-8">
-          <p className="text-white">
-            © 2024 Janani Gurram. All rights reserved.
-          </p>
-        </div>
       </div>
     </section>
   );

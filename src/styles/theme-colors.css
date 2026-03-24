@@ -1,13 +1,13 @@
 /* Custom Color Palette */
 :root {
-  --cool-brown: #6B5B4F;
-  --cool-brown-light: #8B7B6F;
-  --cool-brown-lighter: #A89D94;
-  --cool-brown-dark: #4F453C;
-  --cool-blue-dark: #2C3E50;
-  --cool-blue-darker: #1A2535;
-  --cool-blue-light: #E8F4F8;
-  --cool-blue-lighter: #F5FAFB;
+  --cool-brown: #7d6b5f;
+  --cool-brown-light: #9d8b7f;
+  --cool-brown-lighter: #b3a395;
+  --cool-brown-dark: #5f4f45;
+  --cool-blue-dark: #4a525e;
+  --cool-blue-darker: #2d3540;
+  --cool-blue-light: #d9e0e8;
+  --cool-blue-lighter: #eff2f7;
 }
 
 /* Text Colors */

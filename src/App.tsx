@@ -13,7 +13,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={
-          <div style={{ minHeight: '100vh' }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             <About />
             <Projects />
             <Skills />

@@ -1,2 +1,22 @@
 @import "tailwindcss";
 @import "./theme-colors.css";
+
+body {
+  background-image: url('../assets/background_plants.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+section {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  margin: 2rem 1rem;
+  border-radius: 0.75rem;
+}
+
+.bg-cool-blue-lighter {
+  background-color: rgba(239, 242, 247, 0.85) !important;
+  backdrop-filter: blur(10px);
+}
