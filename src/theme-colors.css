@@ -1,0 +1,71 @@
+/* Custom Color Palette */
+:root {
+  --cool-brown: #6B5B4F;
+  --cool-brown-light: #8B7B6F;
+  --cool-brown-lighter: #A89D94;
+  --cool-brown-dark: #4F453C;
+  --cool-blue-dark: #2C3E50;
+  --cool-blue-darker: #1A2535;
+  --cool-blue-light: #E8F4F8;
+  --cool-blue-lighter: #F5FAFB;
+}
+
+/* Text Colors */
+.text-cool-brown {
+  color: var(--cool-brown);
+}
+
+.text-cool-brown-light {
+  color: var(--cool-brown-light);
+}
+
+.text-cool-brown-dark {
+  color: var(--cool-brown-dark);
+}
+
+.text-cool-blue-dark {
+  color: var(--cool-blue-dark);
+}
+
+.text-cool-blue-darker {
+  color: var(--cool-blue-darker);
+}
+
+.text-cool-blue-light {
+  color: var(--cool-blue-light);
+}
+
+/* Background Colors */
+.bg-cool-brown {
+  background-color: var(--cool-brown);
+}
+
+.bg-cool-blue-lighter {
+  background-color: var(--cool-blue-lighter);
+}
+
+.bg-cool-blue-light {
+  background-color: var(--cool-blue-light);
+}
+
+/* Border Colors */
+.border-cool-brown {
+  border-color: var(--cool-brown);
+}
+
+.border-cool-blue-dark {
+  border-color: var(--cool-blue-dark);
+}
+
+/* Hover Effects */
+.hover\:text-cool-brown-dark:hover {
+  color: var(--cool-brown-dark);
+}
+
+.hover\:bg-cool-blue-light:hover {
+  background-color: var(--cool-blue-light);
+}
+
+.hover\:text-cool-brown:hover {
+  color: var(--cool-brown);
+}

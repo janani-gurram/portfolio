@@ -1,13 +1,29 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import About from './components/About'
+import Projects from './components/Projects'
+import Skills from './components/Skills'
+import WorkExperience from './components/WorkExperience'
+import Contact from './components/Contact'
+import ProjectDetails from './components/ProjectDetails'
 
 function App() {
   return (
-    // <> and </> are React fragments, which allow us to return multiple elements without adding extra nodes to the DOM
-    <>
+    <Router basename="/portfolio">
       <Header />
-      <About />
-    </>
+      <Routes>
+        <Route path="/" element={
+          <div style={{ minHeight: '100vh' }}>
+            <About />
+            <Projects />
+            <Skills />
+            <WorkExperience />
+            <Contact />
+          </div>
+        } />
+        <Route path="/projects/:id" element={<ProjectDetails />} />
+      </Routes>
+    </Router>
   )
 }
 
