@@ -1,8 +1,16 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean> (false);
+  const navigate = useNavigate();
+
+  const handleNavClick = (sectionId: string) => {
+    navigate('/');
+    setTimeout(() => {
+      window.location.hash = sectionId;
+    }, 0);
+  };
 
   const navLinks = [
     { label: "About", href: "#about" },
@@ -30,14 +38,13 @@ export default function Header() {
         {/* gap-8 => adds space between each menu item */}
         <div id="desktop-menu" className="hidden md:flex gap-8">
           {navLinks.map((link) => (
-            <a
+            <button
               key={link.href}
-              href={link.href}
-              // "text-white" => light text for visibility on dark background, "hover:text-cool-blue-light" => light blue accent on hover
-              className="text-white hover:text-cool-blue-light font-medium transition-colors duration-200"
+              onClick={() => handleNavClick(link.href)}
+              className="text-white hover:text-cool-blue-light font-medium transition-colors duration-200 bg-none border-none cursor-pointer p-0"
             >
               {link.label}
-            </a>
+            </button>
           ))}
         </div>
 
@@ -58,16 +65,16 @@ export default function Header() {
           <div id="mobile-menu" className="absolute top-full left-0 right-0 md:hidden bg-cool-brown-dark border-b border-cool-brown shadow-sm">
             <div className="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-2">
               {navLinks.map((link) => (
-                <a
+                <button
                   key={link.href}
-                  href={link.href}
-                  // "block" => makes the entire area of the link clickable
-                  // "py-2" => adds vertical padding for easier clicking
-                  className="block py-2 px-3 text-white hover:text-cool-blue-light hover:bg-cool-brown rounded font-medium"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    handleNavClick(link.href);
+                    setIsMenuOpen(false);
+                  }}
+                  className="block py-2 px-3 text-white hover:text-cool-blue-light hover:bg-cool-brown rounded font-medium bg-none border-none cursor-pointer w-full text-left"
                 >
                   {link.label}
-                </a>
+                </button>
               ))}
             </div>
           </div>
