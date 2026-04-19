@@ -8,7 +8,7 @@ export default function About() {
           About Me
         </h2>
         
-        <div className="flex gap-6 items-start">
+        <div className="flex flex-col md:flex-row gap-6 items-start">
           <div>
             <img
               src={profilePicture}

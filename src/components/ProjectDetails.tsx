@@ -1,17 +1,19 @@
 import { useParams, Link } from 'react-router-dom'
 import architecturePdf from '../assets/UTSCHTP Architecture Overview.pdf'
+import tetrisDemoVideo from '../assets/tetris_assembly_demo.mp4'
 
 const projectsData: { [key: string]: any } = {
   '1': {
     title: "Tetris Assembly",
-    description: "A classic Tetris game implementation written entirely in Assembly language. This project demonstrates low-level programming skills and understanding of hardware interaction.",
+    description: "I built a classic Tetris game implementation written entirely in Assembly language. This project showcases my low-level programming skills and understanding of hardware interaction.",
     technologies: ["Assembly", "Graphics", "Game Development"],
     link: "https://github.com/janani-gurram/tetris-assembly",
+    demo: tetrisDemoVideo,
     details: [
       "Implemented core game mechanics including piece rotation, collision detection, and line clearing",
-      "Designed modular architecture with separate modules for keyboard input, graphics rendering, and game logic",
+      "Designed a modular architecture with separate modules for keyboard input, graphics rendering, and game logic",
       "Utilized bitmap display for graphics and keyboard interrupts for real-time player input",
-      "Features tile-based grid system and state management for game progression"
+      "Built a tile-based grid system and state management for smooth game progression"
     ],
     features: [
       "Real-time keyboard input handling",
@@ -21,33 +23,59 @@ const projectsData: { [key: string]: any } = {
     ],
     year: "2023"
   },
-  '2': {
-    title: "Router Mininet Simulation",
-    description: "A comprehensive networking project that simulates routing protocols and network behavior using Mininet and the POX controller framework.",
-    technologies: ["Python", "C", "Mininet", "POX"],
-    link: "https://github.com/janani-gurram/router-mininet",
+  '8': {
+    title: "Pantry Pal",
+    description: "I built a collaborative pantry and inventory management application to help users organize and track their pantry items efficiently. This was a pair project where I focused on creating a user-friendly interface and practical functionality.",
+    technologies: ["JavaScript", "HTML", "CSS", "Web Development"],
+    link: "https://github.com/janani-gurram/project-janani-and-rachel",
+    demoLink: "https://www.youtube.com/watch?v=tRbbwgVwjrE",
     details: [
-      "Implemented routing simulation using Mininet network emulator for testing routing protocols",
-      "Developed custom router using POX controller framework for OpenFlow switches",
-      "Created HTTP servers and client utilities for network traffic testing",
-      "Configured routing tables and demonstrated OSPF-like routing implementation"
+      "Designed and implemented collaborative features for multiple users to manage shared pantry inventory",
+      "Built an intuitive user interface for tracking and organizing pantry items",
+      "Implemented data persistence to maintain inventory state across sessions",
+      "Focused on usability and practical features for real-world pantry management"
     ],
     features: [
-      "Network topology simulation",
-      "OpenFlow switch control",
-      "Custom routing algorithm implementation",
-      "Network traffic analysis tools"
+      "Inventory tracking and management",
+      "Collaborative editing capabilities",
+      "User-friendly interface design",
+      "Data persistence",
+      "Item organization and categorization"
     ],
     year: "2024"
   },
+  '2': {
+    title: "Router Mininet Simulation",
+    description: "I built a software-defined networking project that implements a user-space IPv4 router in C and validates it in a Mininet emulated network controlled by POX. My router handles core L3 behavior including ARP request/reply processing, ARP cache management, longest-prefix route lookup, TTL decrement and checksum updates, ICMP generation, and packet queuing during unresolved ARP lookups.",
+    technologies: ["Python", "C", "Mininet", "POX", "Networking"],
+    link: "https://github.com/janani-gurram/router-mininet",
+    details: [
+      "Implemented a C-based software router with ARP cache/timeout logic and longest-prefix matching for IP forwarding",
+      "Handled core L3 networking including ARP request/reply processing, TTL decrement, and checksum updates",
+      "Implemented ICMP error and echo responses (unreachable, time exceeded, echo reply)",
+      "Designed a packet queuing mechanism for retransmission during unresolved ARP lookups",
+      "Integrated the router with a Mininet emulated network topology controlled by POX SDN controller",
+      "Validated correctness with end-to-end testing using ping, traceroute, HTTP requests, and packet captures"
+    ],
+    features: [
+      "IPv4 routing with longest-prefix matching",
+      "ARP protocol implementation and cache management",
+      "ICMP error and echo handling",
+      "TTL decrement and checksum validation",
+      "Packet queuing and retransmission workflow",
+      "Mininet topology emulation and testing",
+      "Packet capture and network traffic analysis"
+    ],
+    year: "2025"
+  },
   '3': {
     title: "Stock Portfolio Manager",
-    description: "A full-stack web application for managing and tracking stock portfolios. Features real-time data updates and portfolio analysis tools.",
+    description: "I built a full-stack web application for managing and tracking stock portfolios with real-time data updates and portfolio analysis tools.",
     technologies: ["JavaScript", "HTML", "CSS", "Full-Stack"],
     link: "https://github.com/janani-gurram/stock-portfolio-manager",
     details: [
-      "Designed and implemented responsive frontend with real-time portfolio updates",
-      "Created backend API for portfolio management and stock data aggregation",
+      "Designed and implemented a responsive frontend with real-time portfolio updates",
+      "Created a backend API for portfolio management and stock data aggregation",
       "Integrated with financial data APIs for real-time stock prices",
       "Implemented portfolio analytics and performance tracking features"
     ],
@@ -61,12 +89,12 @@ const projectsData: { [key: string]: any } = {
   },
   '4': {
     title: "Apache Superset Contribution",
-    description: "An open-source contribution to Apache Superset addressing a histogram chart rendering bug with NULL values in datasets.",
+    description: "I contributed an open-source fix to Apache Superset addressing a histogram chart rendering bug with NULL values in datasets.",
     technologies: ["Python", "Open Source", "Testing"],
     link: "https://github.com/apache/superset/pull/35693",
     details: [
-      "Identified and fixed regression where histogram charts crashed with NULL values",
-      "Implemented robust NULL value handling in data processing pipeline",
+      "Identified and fixed a regression where histogram charts crashed with NULL values",
+      "Implemented robust NULL value handling in the data processing pipeline",
       "Added comprehensive unit tests covering grouped and ungrouped scenarios",
       "Tested with partial and complete NULL datasets to ensure reliability"
     ],
@@ -80,15 +108,15 @@ const projectsData: { [key: string]: any } = {
   },
   '5': {
     title: "Shopping Mall Android Application",
-    description: "A mobile marketplace application for buyers and store owners. Built with Android Studio following SOLID design principles and Agile methodology.",
+    description: "I built a mobile marketplace application for buyers and store owners using Android Studio while following SOLID design principles and Agile methodology.",
     technologies: ["Java", "Android", "Firebase", "Agile"],
     link: "https://github.com/UTSC-CSCC01-Software-Engineering-I/term-group-project-bedah",
     details: [
       "Served as Scrum Master, managing sprint planning, daily standups, and backlog refinement using Jira",
-      "Designed modular Android application architecture following SOLID design principles",
+      "Designed a modular Android application architecture following SOLID design principles",
       "Implemented real-time user authentication and product browsing using Firebase",
       "Developed comprehensive Java unit tests for critical business logic",
-      "Managed 5-person Agile development team with emphasis on timely delivery"
+      "Managed a 5-person Agile development team with emphasis on timely delivery"
     ],
     features: [
       "Modular architecture",
@@ -102,13 +130,13 @@ const projectsData: { [key: string]: any } = {
   },
   '6': {
     title: "Pintos Operating System Project",
-    description: "A comprehensive operating systems project from CSCC69 at the University of Toronto. Implements core OS concepts including threading, virtual memory, and file systems.",
+    description: "I completed a comprehensive operating systems project where I implemented core OS concepts including threading, virtual memory, and file systems.",
     technologies: ["C", "Operating Systems", "Systems Programming"],
     link: "#",
     details: [
       "Implemented kernel threads with scheduling and synchronization primitives",
-      "Designed virtual memory system with page replacement algorithms",
-      "Built file system with inode management and disk I/O optimization",
+      "Designed a virtual memory system with page replacement algorithms",
+      "Built a file system with inode management and disk I/O optimization",
       "Implemented locks, semaphores, and condition variables for thread safety",
       "Optimized system performance while maintaining correctness under concurrent load"
     ],
@@ -123,16 +151,16 @@ const projectsData: { [key: string]: any } = {
   },
   '7': {
     title: "UTSC HealthTech Platform - Solution Architecture",
-    description: "Designed comprehensive system architecture for multi-clinic healthcare platform. Implemented multi-tenancy migration, performance optimization with ETL pipelines, and Fitbit integration.",
+    description: "I designed and implemented a comprehensive system architecture for a multi-clinic healthcare platform with multi-tenancy migration, performance optimization with ETL pipelines, and Fitbit integration.",
     technologies: ["Solution Architecture", "PostgreSQL", "ETL", "System Design"],
     link: "#",
     documentLink: architecturePdf,
     details: [
       "Migrated from single-tenant MongoDB to multi-tenant PostgreSQL with row-level security",
-      "Implemented bulk FHIR ETL pipeline reducing patient search time from 30s to <2s",
+      "Implemented a bulk FHIR ETL pipeline reducing patient search time from 30s to <2s",
       "Designed Fitbit OAuth integration with per-clinic encryption keys and nightly data sync",
-      "Architected data warehouse for population health analytics with POPULATIONHEALTH table",
-      "Implemented canary deployment strategy with API Gateway for risk mitigation"
+      "Architected a data warehouse for population health analytics with POPULATIONHEALTH table",
+      "Implemented a canary deployment strategy with API Gateway for risk mitigation"
     ],
     features: [
       "Multi-tenancy with row-level isolation",
@@ -181,6 +209,31 @@ export default function ProjectDetails() {
           <p className="text-lg text-cool-brown-dark mb-8 leading-relaxed">
             {project.description}
           </p>
+
+          {project.demo && (
+            <div className="mb-8">
+              <video
+                src={project.demo}
+                className="w-full rounded-lg border-2 border-cool-blue-dark"
+                controls
+              />
+            </div>
+          )}
+
+          {project.demoLink && !project.demo && (
+            <div className="mb-8">
+              <iframe
+                width="100%"
+                height="500"
+                src={project.demoLink.replace('watch?v=', 'embed/')}
+                title="Project Demo"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="rounded-lg border-2 border-cool-blue-dark"
+              ></iframe>
+            </div>
+          )}
 
           <div className="mb-8">
             <h2 className="text-2xl font-semibold mb-4 text-cool-blue-dark">Technologies</h2>
@@ -231,6 +284,16 @@ export default function ProjectDetails() {
                 className="inline-block bg-cool-brown hover:bg-cool-brown-light text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
               >
                 View on GitHub →
+              </a>
+            )}
+            {project.demoLink && (
+              <a
+                href={project.demoLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-cool-brown hover:bg-cool-brown-light text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
+              >
+                Watch Demo →
               </a>
             )}
             {project.documentLink && (

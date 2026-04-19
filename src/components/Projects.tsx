@@ -5,49 +5,56 @@ export default function Projects() {
     {
       id: 1,
       title: "Tetris Assembly",
-      description: "A classic Tetris game implementation written entirely in Assembly language. Features modular architecture with keyboard input, bitmap graphics rendering, and core game logic.",
+      description: "I built a classic Tetris game implementation written entirely in Assembly language. This was a fun project to showcase my low-level programming skills!",
       technologies: ["Assembly", "Graphics", "Game Development"],
       link: "https://github.com/janani-gurram/tetris-assembly"
     },
     {
+      id: 8,
+      title: "Pantry Pal",
+      description: "I collaborated on a pantry and inventory management app to help users organize and track their pantry items with an intuitive interface.",
+      technologies: ["JavaScript", "HTML", "CSS", "Web Development"],
+      link: "https://github.com/janani-gurram/project-janani-and-rachel"
+    },
+    {
       id: 2,
       title: "Router Mininet Simulation",
-      description: "Network routing simulation project using Mininet and POX controller. Implements routing protocols and network behavior simulation with HTTP server components for testing.",
+      description: "I implemented a C-based IPv4 router and validated it in a Mininet emulated network. It was a deep dive into networking fundamentals and systems programming!",
       technologies: ["Python", "C", "Mininet", "POX"],
       link: "https://github.com/janani-gurram/router-mininet"
     },
     {
       id: 3,
       title: "Stock Portfolio Manager",
-      description: "Full-stack web application for managing and tracking stock portfolios. Built with a modern tech stack featuring separate frontend and backend architecture.",
+      description: "I built a full-stack web application for managing and tracking stock portfolios with real-time data updates and portfolio analysis tools.",
       technologies: ["PostgreSQL", "JavaScript", "Express", "Node.js",  "Full-Stack"],
       link: "https://github.com/janani-gurram/stock-portfolio-manager"
     },
     {
       id: 4,
       title: "Apache Superset Contribution",
-      description: "Contributed a fix to Apache Superset addressing histogram chart rendering with NULL values. Includes comprehensive unit tests and handles real-world imperfect datasets.",
+      description: "I contributed an open-source fix to Apache Superset that addressed histogram chart rendering bugs with NULL values in datasets.",
       technologies: ["Python", "Open Source", "Testing"],
       link: "https://github.com/apache/superset/pull/35693"
     },
     {
       id: 5,
       title: "Shopping Mall Android Application",
-      description: "Mobile marketplace app for buyers and store owners. Served as Scrum Master managing Agile development with modular Android architecture and Firebase integration.",
+      description: "I built a mobile marketplace app for buyers and store owners while serving as Scrum Master. It was great experience managing an Agile team!",
       technologies: ["Java", "Android", "Firebase", "Agile"],
       link: "https://github.com/UTSC-CSCC01-Software-Engineering-I/term-group-project-bedah"
     },
     {
       id: 6,
       title: "Pintos Operating System Project",
-      description: "Comprehensive operating systems implementation from CSCC69. Features threading, virtual memory, file systems, and synchronization primitives.",
+      description: "I completed a comprehensive OS implementation with threading, virtual memory, file systems, and synchronization primitives.",
       technologies: ["C", "Operating Systems", "Systems Programming"],
       link: "#"
     },
     {
       id: 7,
       title: "UTSC HealthTech Platform - Solution Architecture",
-      description: "Designed comprehensive system architecture for multi-clinic healthcare platform. Implemented multi-tenancy migration, performance optimization with ETL pipelines, and Fitbit integration.",
+      description: "I designed a comprehensive system architecture for a multi-clinic healthcare platform with multi-tenancy and ETL optimization.",
       technologies: ["Solution Architecture", "PostgreSQL", "ETL", "System Design"],
       link: "#"
     }

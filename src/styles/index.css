@@ -17,6 +17,6 @@ section {
 }
 
 .bg-cool-blue-lighter {
-  background-color: rgba(239, 242, 247, 0.85) !important;
+  background-color: rgba(215, 225, 227, 0.85) !important;
   backdrop-filter: blur(10px);
 }
