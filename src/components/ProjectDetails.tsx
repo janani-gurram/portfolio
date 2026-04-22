@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import architecturePdf from '../assets/UTSCHTP Architecture Overview.pdf'
 import tetrisDemoVideo from '../assets/tetris_assembly_demo.mp4'
+import stockPortfoDemoVideo from '../assets/stock_portfolio_short_demo.mp4'
 
 const projectsData: { [key: string]: any } = {
   '1': {
@@ -21,7 +22,7 @@ const projectsData: { [key: string]: any } = {
       "Modular code architecture",
       "Game physics and collision detection"
     ],
-    year: "2023"
+    year: "2024"
   },
   '8': {
     title: "Pantry Pal",
@@ -70,20 +71,23 @@ const projectsData: { [key: string]: any } = {
   },
   '3': {
     title: "Stock Portfolio Manager",
-    description: "I built a full-stack web application for managing and tracking stock portfolios with real-time data updates and portfolio analysis tools.",
-    technologies: ["JavaScript", "HTML", "CSS", "Full-Stack"],
+    description: "I built PortfolioManager, a backend-focused investment management project built around relational database design and API-driven business logic. The primary goal was to model real financial and social workflows in PostgreSQL and expose those workflows through a clean Express API. The frontend is intentionally lightweight and utility-oriented, built mainly to interact with and demonstrate backend endpoints rather than serve as the project's main focus.",
+    technologies: ["Node.js", "Express", "PostgreSQL", "express-session", "bcrypt", "REST API", "Vanilla JavaScript", "HTML", "CSS"],
     link: "https://github.com/janani-gurram/stock-portfolio-manager",
+    demo: stockPortfoDemoVideo,
     details: [
-      "Designed and implemented a responsive frontend with real-time portfolio updates",
-      "Created a backend API for portfolio management and stock data aggregation",
-      "Integrated with financial data APIs for real-time stock prices",
-      "Implemented portfolio analytics and performance tracking features"
+      "Designed a normalized relational schema with foreign keys to enforce data integrity across users, portfolios, holdings, reviews, and social interactions",
+      "Implemented backend logic to handle state transitions (deposit, withdraw, transfer, buy, sell) with SQL transactions to keep financial data consistent",
+      "Added analytics-support tables (cov_cache, beta_cache, cov_mat_cache) to reduce repeated expensive calculations",
+      "Built API routes to separate domain concerns (auth, portfolio, stock, stock list, review, friends) and keep backend behavior maintainable",
+      "Created a simple frontend client to exercise the API and make database-backed workflows easy to demonstrate"
     ],
     features: [
-      "Portfolio tracking dashboard",
-      "Real-time stock updates",
-      "Performance analytics",
-      "Responsive design"
+      "Multi-portfolio account model with cash balances and position tracking",
+      "Buy/sell workflows that update holdings, cash, and transaction history",
+      "Stock list management with public/private visibility controls",
+      "Social layer: friend requests, friend graph, and collaborative reviews",
+      "Statistical endpoints for covariance/beta with cache tables for efficiency"
     ],
     year: "2024"
   },
@@ -284,16 +288,6 @@ export default function ProjectDetails() {
                 className="inline-block bg-cool-brown hover:bg-cool-brown-light text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
               >
                 View on GitHub →
-              </a>
-            )}
-            {project.demoLink && (
-              <a
-                href={project.demoLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-cool-brown hover:bg-cool-brown-light text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
-              >
-                Watch Demo →
               </a>
             )}
             {project.documentLink && (

@@ -26,8 +26,8 @@ export default function Projects() {
     {
       id: 3,
       title: "Stock Portfolio Manager",
-      description: "I built a full-stack web application for managing and tracking stock portfolios with real-time data updates and portfolio analysis tools.",
-      technologies: ["PostgreSQL", "JavaScript", "Express", "Node.js",  "Full-Stack"],
+      description: "I built a backend-focused investment management project centered on relational database design and clean API endpoints. I modeled financial workflows in PostgreSQL and exposed them through Express, with a lightweight frontend to demonstrate the database-backed functionality.",
+      technologies: ["Node.js", "Express", "PostgreSQL", "REST API", "Database Design"],
       link: "https://github.com/janani-gurram/stock-portfolio-manager"
     },
     {
