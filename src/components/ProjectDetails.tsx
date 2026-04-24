@@ -72,7 +72,7 @@ const projectsData: { [key: string]: any } = {
   '3': {
     title: "Stock Portfolio Manager",
     description: "I built PortfolioManager, a backend-focused investment management project built around relational database design and API-driven business logic. The primary goal was to model real financial and social workflows in PostgreSQL and expose those workflows through a clean Express API. The frontend is intentionally lightweight and utility-oriented, built mainly to interact with and demonstrate backend endpoints rather than serve as the project's main focus.",
-    technologies: ["Node.js", "Express", "PostgreSQL", "express-session", "bcrypt", "REST API", "Vanilla JavaScript", "HTML", "CSS"],
+    technologies: ["Node.js", "Express", "PostgreSQL", "REST API", "JavaScript", "HTML", "CSS"],
     link: "https://github.com/janani-gurram/stock-portfolio-manager",
     demo: stockPortfoDemoVideo,
     details: [
@@ -155,23 +155,25 @@ const projectsData: { [key: string]: any } = {
   },
   '7': {
     title: "UTSC HealthTech Platform - Solution Architecture",
-    description: "I designed and implemented a comprehensive system architecture for a multi-clinic healthcare platform with multi-tenancy migration, performance optimization with ETL pipelines, and Fitbit integration.",
-    technologies: ["Solution Architecture", "PostgreSQL", "ETL", "System Design"],
+    description: "I was part of a 5-person team that designed a comprehensive system architecture for a multi-clinic healthcare platform. I led the architecture and implementation of two critical components: the noisy tenant mitigation strategy and the complete Fitbit integration system.",
+    technologies: ["Solution Architecture", "PostgreSQL", "ETL", "System Design", "Node.js", "Express", "Celery", "AWS KMS", "FHIR", "OAuth 2.0"],
     link: "#",
     documentLink: architecturePdf,
     details: [
-      "Migrated from single-tenant MongoDB to multi-tenant PostgreSQL with row-level security",
-      "Implemented a bulk FHIR ETL pipeline reducing patient search time from 30s to <2s",
-      "Designed Fitbit OAuth integration with per-clinic encryption keys and nightly data sync",
-      "Architected a data warehouse for population health analytics with POPULATIONHEALTH table",
-      "Implemented a canary deployment strategy with API Gateway for risk mitigation"
+      "Architected and implemented the noisy tenant mitigation strategy using clinic-based rate limiting with Redis caching and sliding window algorithm to prevent resource overallocation",
+      "Designed Application Performance Monitoring (APM) integration with Sentry to track per-clinic performance metrics and identify resource-consuming tenants",
+      "Built end-to-end Fitbit OAuth 2.0 integration with PKCE flow, including secure token encryption using per-clinic AWS KMS keys for data isolation",
+      "Implemented asynchronous Fitbit data pipeline using Celery Beat scheduler and workers, with priority-based job queuing for overnight data syncs aligned with patient appointments",
+      "Designed FHIR Observation data transformation to map Fitbit metrics (heart rate, respiratory rate, steps, calories) into clinical standards using LOINC codes for EMR integration"
     ],
     features: [
-      "Multi-tenancy with row-level isolation",
-      "Bulk FHIR data ingestion via ETL",
-      "Real-time patient search optimization",
-      "Secure Fitbit token management",
-      "Population health analytics and reporting"
+      "Clinic-based rate limiting with sliding window algorithm and Redis caching",
+      "Application Performance Monitoring per-clinic tracking via Sentry",
+      "OAuth 2.0 Fitbit integration with PKCE and per-clinic encryption keys",
+      "Asynchronous Celery-based data sync pipeline with priority job queuing",
+      "FHIR Observation transformation and EMR data writing",
+      "Separate Fitbit and clinical databases for security isolation",
+      "Automated token refresh with stale connection detection and user notifications"
     ],
     year: "2025"
   }
