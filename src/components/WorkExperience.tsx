@@ -5,7 +5,7 @@ export default function WorkExperience() {
       company: "PointClickCare",
       position: "Software Engineer",
       location: "Mississauga, Ontario",
-      duration: "Jan 2025 - Aug 2026",
+      duration: "Jan 2025 - Present",
       achievements: [
         "Resolved production issues in a large healthcare platform by debugging React frontends and Django/Python backend, restoring correct system behavior for customer-facing workflows across legacy and modern interfaces",
         "Improved backend data integrity and API reliability by ensuring critical system events were correctly persisted and exposed, preventing duplicate events and keeping services consistent at scale",
@@ -42,7 +42,7 @@ export default function WorkExperience() {
       company: "University of Toronto Scarborough",
       position: "Teaching Assistant",
       location: "Toronto, Ontario",
-      duration: "Sept 2024 - Dec 2024; Sept 2025 - Present",
+      duration: "Sept 2024 - Dec 2024; Sept 2025 - Dec 2025",
       achievements: [
         "Led tutorials explaining complex computer science concepts (theory of computation, web development, algorithms, data structures), adapting explanations to support students with diverse learning styles",
         "Provided hands-on guidance in Node.js, Express.js, React, SQL/NoSQL databases, and cloud deployment across Google Cloud, Azure, and AWS",
