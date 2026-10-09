@@ -62,7 +62,7 @@ export default function WorkExperience() {
           {experiences.map((exp) => (
             <div
               key={exp.id}
-              className="bg-cool-blue-lighter border-l-4 border-cool-brown rounded-lg p-8 hover:shadow-lg transition-shadow duration-200"
+              className="bg-cool-blue-lighter rounded-lg p-8 hover:shadow-lg transition-shadow duration-200"
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                 <div>
