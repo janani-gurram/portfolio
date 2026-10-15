@@ -23,7 +23,7 @@ export default function ProjectDetails() {
   return (
     <div className="project-detail min-h-screen bg-cool-blue-lighter py-12">
       <div className="max-w-4xl mx-auto px-4">
-        <Link to="/#projects" className="text-cool-brown hover:text-cool-brown-dark font-medium mb-8 inline-block">
+        <Link to="/projects" className="text-cool-brown hover:text-cool-brown-dark font-medium mb-8 inline-block">
           ← Back to projects
         </Link>
 
