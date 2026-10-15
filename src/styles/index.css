@@ -2,21 +2,468 @@
 @import "./theme-colors.css";
 
 body {
-  background-image: url('../assets/background_plants.png');
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: transparent;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
+/* Notebook binding spine */
+/* the spine should be binder.png */
+body::before {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 56px;
+  height: 100%;
+  background: var(--binding-color);
+  box-shadow: inset -2px 0 4px rgba(0,0,0,0.15);
+  z-index: 100;
+}
+
+/* Main content wrapper */
+#root {
+  margin-left: 56px;
+  width: calc(100% - 56px);
+  padding: 1rem;
+}
+
+/* Main page sections */
 section {
-  background-color: rgba(244, 244, 244, 0.8);
-  backdrop-filter: blur(10px);
-  margin: 2rem 1rem;
-  border-radius: 0.75rem;
+  background: #FFFBF0;
+  margin: 1.5rem auto;
+  padding: 2.5rem;
+  max-width: 900px;
+  border-radius: 16px;
+  position: relative;
+  border: 1px solid rgba(139, 115, 85, 0.08);
+  transition: all 0.35s ease;
+  transform: rotate(-0.35deg);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.12),
+    0 15px 35px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  scroll-margin-top: 80px;
+}
+
+.page-shell {
+  min-height: calc(100vh - 56px);
+  padding: 1rem 0 2.5rem;
+  animation: pageFlipIn 0.35s ease-out;
+}
+
+.page-shell-about {
+  background: rgba(255, 250, 205, 0.38);
+}
+
+.page-shell-projects {
+  background: rgba(255, 228, 225, 0.38);
+}
+
+.page-shell-skills {
+  background: rgba(224, 248, 224, 0.38);
+}
+
+.page-shell-experience {
+  background: rgba(230, 243, 255, 0.38);
+}
+
+.page-shell-contact {
+  background: rgba(255, 232, 204, 0.4);
+}
+
+@keyframes pageFlipIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.995);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+section:hover {
+  transform: rotate(0deg) translateY(-6px);
+  box-shadow: 
+    0 20px 45px rgba(0, 0, 0, 0.18),
+    0 30px 60px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Pushpin - refined */
+section::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle at 32% 32%, #E8453C 0%, #C41C1C 40%, #8B0000 100%);
+  border-radius: 50%;
+  top: -12px;
+  right: 30px;
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.35),
+    inset -1px -1px 3px rgba(0, 0, 0, 0.3),
+    inset 1px 1px 3px rgba(255, 255, 255, 0.3);
+  z-index: 10;
+}
+
+section:nth-child(2)::before {
+  background: radial-gradient(circle at 32% 32%, #4A9FFF 0%, #1E7FE8 40%, #0D47A1 100%);
+}
+
+/* Unique section treatments */
+#about {
+  background: linear-gradient(135deg, #FFFDF8 0%, #FFF7EE 100%);
+}
+
+#about::after,
+#projects::after,
+#skills::after,
+#workexperience::after,
+#contact::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 24px;
+  width: 56px;
+  height: 14px;
+  border-radius: 999px 999px 4px 4px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+  opacity: 0.95;
+}
+
+#about::after {
+  background: #E8A87C;
+}
+
+#projects {
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFF2E0 100%);
+}
+
+#projects::after {
+  background: #7AA6C2;
+}
+
+#skills {
+  background: linear-gradient(135deg, #F7FFF6 0%, #ECFAEE 100%);
+}
+
+#skills::after {
+  background: #7DBD7A;
+}
+
+#workexperience {
+  background: linear-gradient(135deg, #F8FBFF 0%, #EEF6FF 100%);
+}
+
+#workexperience::after {
+  background: #7697D1;
+}
+
+#contact {
+  background: linear-gradient(135deg, #FFF6F4 0%, #FFEFE9 100%);
+}
+
+#contact::after {
+  background: #D98C74;
+}
+
+/* Section-specific content accents */
+#about img {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  border-radius: 14px;
+}
+
+#contact a {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+section:nth-child(3)::before {
+  background: radial-gradient(circle at 32% 32%, #62D96B 0%, #2FAA46 40%, #1B6B34 100%);
+}
+
+section:nth-child(4)::before {
+  background: radial-gradient(circle at 32% 32%, #FFB84D 0%, #E8860E 40%, #C65F00 100%);
+}
+
+section:nth-child(5)::before {
+  background: radial-gradient(circle at 32% 32%, #E838E8 0%, #C001C0 40%, #8B008B 100%);
 }
 
 .bg-cool-blue-lighter {
-  background-color: rgba(215, 223, 224, 0.85) !important;
-  backdrop-filter: blur(10px);
+  background-color: var(--sticky-yellow) !important;
+  backdrop-filter: none;
 }
+
+/* Make text align with notebook lines */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+p, li, span {
+  word-spacing: 0.05em;
+}
+
+/* Utilities for new color variables */
+.text-sticky-yellow {
+  color: var(--sticky-yellow);
+}
+
+.text-sticky-pink {
+  color: var(--sticky-pink);
+}
+
+.text-sticky-green {
+  color: var(--sticky-green);
+}
+
+.text-sticky-blue {
+  color: var(--sticky-blue);
+}
+
+.text-sticky-orange {
+  color: var(--sticky-orange);
+}
+
+.text-binding-color {
+  color: var(--binding-color);
+}
+
+.bg-binding-color {
+  background-color: var(--binding-color);
+}
+
+/* Sticky note card styling */
+.sticky-note {
+  background: var(--sticky-yellow);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.2),
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transform: rotate(-0.5deg);
+  position: relative;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sticky-note:hover {
+  transform: rotate(0deg) translateY(-8px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.3),
+    0 40px 80px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.sticky-note::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle at 35% 35%, #FF8C42, #E63946, #A4161A);
+  border-radius: 50%;
+  top: -12px;
+  right: 25px;
+  box-shadow: 
+    0 3px 8px rgba(0, 0, 0, 0.4),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.3),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.4);
+  z-index: 10;
+}
+
+.sticky-note.pink {
+  background: var(--sticky-pink);
+  transform: rotate(0.5deg);
+}
+
+.sticky-note.pink::before {
+  background: radial-gradient(circle at 35% 35%, #F265AB, #D946EF, #A21CAF);
+}
+
+.sticky-note.green {
+  background: var(--sticky-green);
+  transform: rotate(-0.3deg);
+}
+
+.sticky-note.green::before {
+  background: radial-gradient(circle at 35% 35%, #69DB7C, #2B8A3E, #1B4332);
+}
+
+.sticky-note.blue {
+  background: var(--sticky-blue);
+  transform: rotate(0.4deg);
+}
+
+.sticky-note.blue::before {
+  background: radial-gradient(circle at 35% 35%, #4DABF7, #1971C2, #0B5394);
+}
+
+.sticky-note.orange {
+  background: var(--sticky-orange);
+  transform: rotate(-0.6deg);
+}
+
+.sticky-note.orange::before {
+  background: radial-gradient(circle at 35% 35%, #FFA94D, #D97706, #B45309);
+}
+
+/* Distinct notebook card styles */
+.paper-card {
+  position: relative;
+  border-radius: 14px;
+  padding: 1.5rem;
+  background: linear-gradient(180deg, #fffdf8 0%, #fff8ee 100%);
+  border: 1px solid rgba(61, 40, 23, 0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
+}
+
+.note-card {
+  background: linear-gradient(180deg, #fffdf7 0%, #fff7ea 100%);
+}
+
+.note-card::before {
+  content: 'note';
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: #e8a87c;
+  color: #3d2817;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.gallery-card {
+  background: linear-gradient(180deg, #fbfbff 0%, #f2f6ff 100%);
+  border: 1px solid rgba(122, 166, 194, 0.35);
+  border-radius: 18px;
+}
+
+.gallery-card::before {
+  content: 'photo gallery';
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: #7aa6c2;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.highlight-card {
+  background: linear-gradient(180deg, #fffef4 0%, #fff7cf 100%);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.09);
+}
+
+.highlight-card::before {
+  content: 'highlight';
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: #e3c94f;
+  color: #3d2817;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.agenda-card {
+  background: linear-gradient(180deg, #f7fbff 0%, #eef5ff 100%);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.10);
+}
+
+.agenda-card::before {
+  content: 'agenda';
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: #7697d1;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.calendar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(118, 151, 209, 0.12);
+  color: #3d2817;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.todo-card {
+  background: linear-gradient(180deg, #fff8f4 0%, #fff1ea 100%);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.10);
+}
+
+.todo-card::before {
+  content: 'to do';
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: #d98c74;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.todo-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(61, 40, 23, 0.08);
+}
+
+.todo-item::before {
+  content: '☑';
+  color: #d98c74;
+  font-weight: 800;
+  line-height: 1;
+  margin-top: 0.05rem;
+}
+
+.photo-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.photo-strip span {
+  display: block;
+  height: 18px;
+  border-radius: 999px;
+}
+
+.photo-strip span:nth-child(1) { background: #f3b7a0; }
+.photo-strip span:nth-child(2) { background: #8bb8d6; }
+.photo-strip span:nth-child(3) { background: #a8dba8; }
+.photo-strip span:nth-child(4) { background: #f1dc8b; }

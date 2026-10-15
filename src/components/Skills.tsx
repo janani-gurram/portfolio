@@ -15,16 +15,18 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="bg-cool-blue-lighter py-20 md:py-32">
+    <section id="skills" className="py-20 md:py-32">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-4xl font-bold mb-12 text-center text-cool-blue-dark">
           Skills
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {skillCategories.map((category) => (
-            <div key={category.category} className="bg-white rounded-lg p-8 border-2 border-cool-brown">
-              <h3 className="text-2xl font-semibold mb-6 text-cool-brown">
+          {skillCategories.map((category, idx) => (
+            <div key={category.category} className={`paper-card highlight-card p-8 ${
+              idx % 3 === 0 ? 'rotate-[-0.3deg]' : idx % 3 === 1 ? 'rotate-[0.25deg]' : 'rotate-[-0.2deg]'
+            }`}>
+              <h3 className="text-2xl font-semibold mb-6" style={{ color: '#3D2817' }}>
                 {category.category}
               </h3>
 

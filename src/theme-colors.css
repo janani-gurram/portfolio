@@ -1,13 +1,22 @@
-/* Custom Color Palette */
+/* Custom Color Palette - Notebook/Sticky Note Theme */
 :root {
-  --cool-brown: #6B5B4F;
-  --cool-brown-light: #8B7B6F;
-  --cool-brown-lighter: #A89D94;
-  --cool-brown-dark: #4F453C;
-  --cool-blue-dark: #2C3E50;
-  --cool-blue-darker: #1A2535;
-  --cool-blue-light: #95d5e0;
-  --cool-blue-lighter: #143539;
+  --cool-brown: #8B7355;
+  --cool-brown-light: #A88968;
+  --cool-brown-lighter: #D4A574;
+  --cool-brown-dark: #5D4E37;
+  --cool-blue-dark: #4A4A4A;
+  --cool-blue-darker: #2E2E2E;
+  --cool-blue-light: #FFF9E6;
+  --cool-blue-lighter: #FFF4D6;
+  
+  /* Sticky Note Colors */
+  --sticky-yellow: #FFFACD;
+  --sticky-pink: #FFE4E1;
+  --sticky-green: #E0F8E0;
+  --sticky-blue: #E6F3FF;
+  --sticky-orange: #FFE8CC;
+  --paper-cream: #FEFDF8;
+  --binding-color: #3D2817;
 }
 
 /* Text Colors */
@@ -60,6 +69,68 @@
 /* Hover Effects */
 .hover\:text-cool-brown-dark:hover {
   color: var(--cool-brown-dark);
+}
+
+/* Sticky Note Card Styling */
+.sticky-note {
+  background: var(--sticky-yellow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: rotate(-1deg);
+  position: relative;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.sticky-note:hover {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.sticky-note::before {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle at 30% 30%, #FF6B6B, #C92A2A);
+  border-radius: 50%;
+  top: -7px;
+  right: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.sticky-note.pink {
+  background: var(--sticky-pink);
+}
+
+.sticky-note.green {
+  background: var(--sticky-green);
+}
+
+.sticky-note.blue {
+  background: var(--sticky-blue);
+}
+
+.sticky-note.orange {
+  background: var(--sticky-orange);
+}
+
+/* Ruled lines effect */
+.notebook-lines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 24px,
+    #D4A574 24px,
+    #D4A574 25px
+  );
+  background-position: 0 10px;
+}
+
+/* Handwritten-like text */
+.handwritten {
+  font-family: 'Segoe Print', 'Comic Sans MS', cursive;
+  font-style: italic;
+  letter-spacing: 0.5px;
 }
 
 .hover\:bg-cool-blue-light:hover {

@@ -1,85 +1,90 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useMemo } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean> (false);
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleNavClick = (sectionId: string) => {
-    navigate('/');
-    setTimeout(() => {
-      window.location.hash = sectionId;
-    }, 0);
+  const tabs = useMemo(
+    () => [
+      { label: 'About', path: '/about', color: '#FFFACD' },
+      { label: 'Projects', path: '/projects', color: '#FFE4E1' },
+      { label: 'Skills', path: '/skills', color: '#E0F8E0' },
+      { label: 'Work', path: '/experience', color: '#E6F3FF' },
+      { label: 'Contact', path: '/contact', color: '#FFE8CC' }
+    ],
+    []
+  );
+
+  const activePath = location.pathname.startsWith('/projects') ? '/projects' : location.pathname;
+  const headerBackgroundByPath: Record<string, string> = {
+    '/about': 'linear-gradient(180deg, rgba(255, 250, 205, 0.42) 0%, rgba(248, 246, 241, 0.92) 100%)',
+    '/projects': 'linear-gradient(180deg, rgba(255, 228, 225, 0.42) 0%, rgba(248, 246, 241, 0.92) 100%)',
+    '/skills': 'linear-gradient(180deg, rgba(224, 248, 224, 0.42) 0%, rgba(248, 246, 241, 0.92) 100%)',
+    '/experience': 'linear-gradient(180deg, rgba(230, 243, 255, 0.42) 0%, rgba(248, 246, 241, 0.92) 100%)',
+    '/contact': 'linear-gradient(180deg, rgba(255, 232, 204, 0.42) 0%, rgba(248, 246, 241, 0.92) 100%)'
   };
-
-  const navLinks = [
-    { label: "About", href: "#about" },
-    { label: "Projects", href: "#projects" },
-    { label: "Skills", href: "#skills" },
-    { label: "Work Experience", href: "#workexperience" },
-    { label: "Contact", href: "#contact" }
-  ]
+  const headerBackground = headerBackgroundByPath[activePath] ?? headerBackgroundByPath['/about'];
 
   return (
-    // "sticky top-0" => makes the header stick to the top of the page when scrolling
-    // "bg-cool-brown-dark shadow-sm" => dark brown background with a subtle shadow for separation from content
-    // "z-50" => ensures the header is above other content
-    <header className="sticky top-0 bg-cool-brown-dark shadow-sm z-50">
-      <nav className="max-w-6xl mx-auto px-4 py-5 flex justify-between items-center">
-        {/* name as the site logo on the left side of the nav bar - now clickable */}
-        {/* "text-xl" => slightly larger size, "font-semibold" => medium-heavy weight for prominence */}
-        <Link to="/" id="logo" className="text-xl font-semibold text-white hover:text-cool-blue-light transition-colors duration-200">
-          Janani
-        </Link>
-
-        {/* DESKTOP */}
-        {/* desktop menu items in the nav bar */}
-        {/* "hidden md:flex" => hidden as default on mobile, shown as flex on medium screens and up (formatting applied left to right)*/}
-        {/* gap-8 => adds space between each menu item */}
-        <div id="desktop-menu" className="hidden md:flex gap-8">
-          {navLinks.map((link) => (
-            <button
-              key={link.href}
-              onClick={() => handleNavClick(link.href)}
-              className="text-white hover:text-cool-blue-light font-medium transition-colors duration-200 bg-none border-none cursor-pointer p-0"
-            >
-              {link.label}
-            </button>
-          ))}
-        </div>
-
-        {/* MOBILE */}
-        {/* hamburger menu button for mobile */}
-        {/* "md:hidden" => hidden on medium screens and up */}
-        <button
-          id="menu-button"
-          className="md:hidden p-2 text-white hover:text-cool-blue-light text-xl"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {/* show "X" when menu is open, hamburger icon when closed */}
-          {isMenuOpen ? "✕" : "☰"}
-        </button>
-
-        {/* mobile menu items, shown when hamburger menu is open */}
-        { isMenuOpen && (
-          <div id="mobile-menu" className="absolute top-full left-0 right-0 md:hidden bg-cool-brown-dark border-b border-cool-brown shadow-sm">
-            <div className="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-2">
-              {navLinks.map((link) => (
+    <header className="relative z-50">
+      <div
+        style={{
+          background: headerBackground,
+          borderBottom: '1px solid rgba(139,115,85,0.18)',
+          boxShadow: '0 1px 5px rgba(0,0,0,0.05)',
+          backdropFilter: 'blur(4px)'
+        }}
+      >
+        <nav className="max-w-6xl mx-auto px-4 py-2.5 flex justify-center">
+          <div style={{ display: 'flex', gap: '0.55rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            {tabs.map((tab) => {
+              const isActive = activePath === tab.path;
+              return (
                 <button
-                  key={link.href}
-                  onClick={() => {
-                    handleNavClick(link.href);
-                    setIsMenuOpen(false);
+                  key={tab.label}
+                  onClick={() => navigate(tab.path)}
+                  style={{
+                    minWidth: tab.label === 'Work' ? '144px' : '108px',
+                    padding: '0.45rem 1rem',
+                    background: isActive ? tab.color : 'rgba(255,255,255,0.72)',
+                    borderBottom: 'none',
+                    borderRadius: '10px 10px 0 0',
+                    fontSize: '12.5px',
+                    fontWeight: '700',
+                    color: '#3D2817',
+                    textAlign: 'center',
+                    boxShadow: isActive
+                      ? '0 -5px 12px rgba(0, 0, 0, 0.16), inset 0 1px 0 rgba(255,255,255,0.75)'
+                      : '0 -2px 6px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255,255,255,0.55)',
+                    cursor: 'pointer',
+                    transition: 'transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease',
+                    position: 'relative',
+                    top: isActive ? '-5px' : '0',
+                    appearance: 'none',
+                    fontFamily: 'inherit',
+                    zIndex: isActive ? 2 : 1,
+                    transform: isActive ? 'translateY(-1px)' : 'translateY(0)'
                   }}
-                  className="block py-2 px-3 text-white hover:text-cool-blue-light hover:bg-cool-brown rounded font-medium bg-none border-none cursor-pointer w-full text-left"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 -7px 14px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255,255,255,0.75)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = isActive ? 'translateY(-1px)' : 'translateY(0)';
+                    e.currentTarget.style.boxShadow = isActive
+                      ? '0 -5px 12px rgba(0, 0, 0, 0.16), inset 0 1px 0 rgba(255,255,255,0.75)'
+                      : '0 -2px 6px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255,255,255,0.55)';
+                  }}
+                  aria-current={isActive ? 'page' : undefined}
                 >
-                  {link.label}
+                  {tab.label}
                 </button>
-              ))}
-            </div>
+              );
+            })}
           </div>
-        )}
-      </nav>
+        </nav>
+      </div>
     </header>
   );
 }

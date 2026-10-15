@@ -61,18 +61,27 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="bg-white py-20 md:py-32">
+    <section id="projects" className="py-20 md:py-32">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-4xl font-bold mb-12 text-center text-cool-blue-dark">
-          Featured Projects
+          Projects
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-cool-blue-lighter border-2 border-cool-blue-dark rounded-lg p-6 hover:shadow-lg transition-shadow duration-200"
+              className={`paper-card gallery-card p-6 hover:shadow-lg transition-shadow duration-200 ${
+                project.id % 4 === 0 ? 'rotate-[0.5deg]' : project.id % 3 === 0 ? 'rotate-[-0.4deg]' : project.id % 2 === 0 ? 'rotate-[0.25deg]' : 'rotate-[-0.25deg]'
+              }`}
             >
+              <div className="photo-strip">
+                <span />
+                <span />
+                <span />
+                <span />
+              </div>
+
               <h3 className="text-xl font-semibold mb-3 text-cool-blue-dark">
                 {project.title}
               </h3>
@@ -85,7 +94,8 @@ export default function Projects() {
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="bg-cool-brown text-white px-3 py-1 rounded-full text-sm"
+                    className="px-3 py-1 rounded-full text-sm font-medium"
+                    style={{ backgroundColor: '#3D2817', color: '#FFFACD' }}
                   >
                     {tech}
                   </span>
