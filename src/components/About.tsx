@@ -1,3 +1,4 @@
+import { profile } from '../data/profile'
 import profilePicture from '../assets/profile_picture.jpg';
 
 export default function About() {
@@ -12,22 +13,17 @@ export default function About() {
           <div>
             <img
               src={profilePicture}
-              alt="Profile Picture"
+              alt={profile.name}
               className="w-48 h-48 object-cover border-4 border-cool-brown rounded-lg flex-shrink-0"
             />
           </div>
 
           <div className="flex-1">
-            <p className="text-lg text-cool-brown-dark leading-relaxed mb-6">
-              I'm Janani Sree Gurram, a Computer Science student at the University of Toronto
-              and a software engineer at PointClickCare. My experience spans full-stack development,
-              distributed data systems, and data engineering, with work in React, Django,
-              Spring Boot, and PySpark on Databricks.
-            </p>
-            <p className="text-lg text-cool-brown-dark leading-relaxed">
-              In my free time, I enjoy cooking, painting, and anything creative.
-              I am excited to connect with like-minded individuals and explore new opportunities!
-            </p>
+            <h1 className="text-3xl font-semibold text-cool-blue-dark mb-4">{profile.headline}</h1>
+            <p className="text-lg text-cool-brown-dark leading-relaxed mb-6">{profile.summary}</p>
+            {profile.about.map((paragraph) => (
+              <p key={paragraph} className="text-lg text-cool-brown-dark leading-relaxed mb-6">{paragraph}</p>
+            ))}
           </div>
         </div>
       </div>

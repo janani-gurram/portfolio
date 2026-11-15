@@ -1,187 +1,11 @@
+import { useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import architecturePdf from '../assets/UTSCHTP Architecture Overview.pdf'
-import tetrisDemoVideo from '../assets/tetris_assembly_demo.mp4'
-import stockPortfoDemoVideo from '../assets/stock_portfolio_short_demo.mp4'
-
-const projectsData: { [key: string]: any } = {
-  '1': {
-    title: "Tetris Assembly",
-    description: "I built a classic Tetris game implementation written entirely in Assembly language. This project showcases my low-level programming skills and understanding of hardware interaction.",
-    technologies: ["Assembly", "Graphics", "Game Development"],
-    link: "https://github.com/janani-gurram/tetris-assembly",
-    demo: tetrisDemoVideo,
-    details: [
-      "Implemented core game mechanics including piece rotation, collision detection, and line clearing",
-      "Designed a modular architecture with separate modules for keyboard input, graphics rendering, and game logic",
-      "Utilized bitmap display for graphics and keyboard interrupts for real-time player input",
-      "Built a tile-based grid system and state management for smooth game progression"
-    ],
-    features: [
-      "Real-time keyboard input handling",
-      "Bitmap graphics rendering",
-      "Modular code architecture",
-      "Game physics and collision detection"
-    ],
-    year: "2024"
-  },
-  '8': {
-    title: "Pantry Pal",
-    description: "I built a collaborative pantry and inventory management application to help users organize and track their pantry items efficiently. This was a pair project where I focused on creating a user-friendly interface and practical functionality.",
-    technologies: ["JavaScript", "HTML", "CSS", "Web Development"],
-    link: "https://github.com/janani-gurram/project-janani-and-rachel",
-    demoLink: "https://www.youtube.com/watch?v=tRbbwgVwjrE",
-    details: [
-      "Designed and implemented collaborative features for multiple users to manage shared pantry inventory",
-      "Built an intuitive user interface for tracking and organizing pantry items",
-      "Implemented data persistence to maintain inventory state across sessions",
-      "Focused on usability and practical features for real-world pantry management"
-    ],
-    features: [
-      "Inventory tracking and management",
-      "Collaborative editing capabilities",
-      "User-friendly interface design",
-      "Data persistence",
-      "Item organization and categorization"
-    ],
-    year: "2024"
-  },
-  '2': {
-    title: "Router Mininet Simulation",
-    description: "I built a software-defined networking project that implements a user-space IPv4 router in C and validates it in a Mininet emulated network controlled by POX. My router handles core L3 behavior including ARP request/reply processing, ARP cache management, longest-prefix route lookup, TTL decrement and checksum updates, ICMP generation, and packet queuing during unresolved ARP lookups.",
-    technologies: ["Python", "C", "Mininet", "POX", "Networking"],
-    link: "https://github.com/janani-gurram/router-mininet",
-    details: [
-      "Implemented a C-based software router with ARP cache/timeout logic and longest-prefix matching for IP forwarding",
-      "Handled core L3 networking including ARP request/reply processing, TTL decrement, and checksum updates",
-      "Implemented ICMP error and echo responses (unreachable, time exceeded, echo reply)",
-      "Designed a packet queuing mechanism for retransmission during unresolved ARP lookups",
-      "Integrated the router with a Mininet emulated network topology controlled by POX SDN controller",
-      "Validated correctness with end-to-end testing using ping, traceroute, HTTP requests, and packet captures"
-    ],
-    features: [
-      "IPv4 routing with longest-prefix matching",
-      "ARP protocol implementation and cache management",
-      "ICMP error and echo handling",
-      "TTL decrement and checksum validation",
-      "Packet queuing and retransmission workflow",
-      "Mininet topology emulation and testing",
-      "Packet capture and network traffic analysis"
-    ],
-    year: "2025"
-  },
-  '3': {
-    title: "Stock Portfolio Manager",
-    description: "I built PortfolioManager, a backend-focused investment management project built around relational database design and API-driven business logic. The primary goal was to model real financial and social workflows in PostgreSQL and expose those workflows through a clean Express API. The frontend is intentionally lightweight and utility-oriented, built mainly to interact with and demonstrate backend endpoints rather than serve as the project's main focus.",
-    technologies: ["Node.js", "Express", "PostgreSQL", "REST API", "JavaScript", "HTML", "CSS"],
-    link: "https://github.com/janani-gurram/stock-portfolio-manager",
-    demo: stockPortfoDemoVideo,
-    details: [
-      "Designed a normalized relational schema with foreign keys to enforce data integrity across users, portfolios, holdings, reviews, and social interactions",
-      "Implemented backend logic to handle state transitions (deposit, withdraw, transfer, buy, sell) with SQL transactions to keep financial data consistent",
-      "Added analytics-support tables (cov_cache, beta_cache, cov_mat_cache) to reduce repeated expensive calculations",
-      "Built API routes to separate domain concerns (auth, portfolio, stock, stock list, review, friends) and keep backend behavior maintainable",
-      "Created a simple frontend client to exercise the API and make database-backed workflows easy to demonstrate"
-    ],
-    features: [
-      "Multi-portfolio account model with cash balances and position tracking",
-      "Buy/sell workflows that update holdings, cash, and transaction history",
-      "Stock list management with public/private visibility controls",
-      "Social layer: friend requests, friend graph, and collaborative reviews",
-      "Statistical endpoints for covariance/beta with cache tables for efficiency"
-    ],
-    year: "2024"
-  },
-  '4': {
-    title: "Apache Superset Contribution",
-    description: "I contributed an open-source fix to Apache Superset addressing a histogram chart rendering bug with NULL values in datasets.",
-    technologies: ["Python", "Open Source", "Testing"],
-    link: "https://github.com/apache/superset/pull/35693",
-    details: [
-      "Identified and fixed a regression where histogram charts crashed with NULL values",
-      "Implemented robust NULL value handling in the data processing pipeline",
-      "Added comprehensive unit tests covering grouped and ungrouped scenarios",
-      "Tested with partial and complete NULL datasets to ensure reliability"
-    ],
-    features: [
-      "NULL value handling",
-      "Chart stability improvements",
-      "Comprehensive unit test coverage",
-      "Real-world dataset compatibility"
-    ],
-    year: "2024"
-  },
-  '5': {
-    title: "Shopping Mall Android Application",
-    description: "I built a mobile marketplace application for buyers and store owners using Android Studio while following SOLID design principles and Agile methodology.",
-    technologies: ["Java", "Android", "Firebase", "Agile"],
-    link: "https://github.com/UTSC-CSCC01-Software-Engineering-I/term-group-project-bedah",
-    details: [
-      "Served as Scrum Master, managing sprint planning, daily standups, and backlog refinement using Jira",
-      "Designed a modular Android application architecture following SOLID design principles",
-      "Implemented real-time user authentication and product browsing using Firebase",
-      "Developed comprehensive Java unit tests for critical business logic",
-      "Managed a 5-person Agile development team with emphasis on timely delivery"
-    ],
-    features: [
-      "Modular architecture",
-      "Real-time Firebase sync",
-      "User authentication system",
-      "Product catalog and search",
-      "Shopping cart and checkout",
-      "Admin store management"
-    ],
-    year: "2023"
-  },
-  '6': {
-    title: "Pintos Operating System Project",
-    description: "I completed a comprehensive operating systems project where I implemented core OS concepts including threading, virtual memory, and file systems.",
-    technologies: ["C", "Operating Systems", "Systems Programming"],
-    link: "#",
-    details: [
-      "Implemented kernel threads with scheduling and synchronization primitives",
-      "Designed a virtual memory system with page replacement algorithms",
-      "Built a file system with inode management and disk I/O optimization",
-      "Implemented locks, semaphores, and condition variables for thread safety",
-      "Optimized system performance while maintaining correctness under concurrent load"
-    ],
-    features: [
-      "Thread management and scheduling",
-      "Virtual memory and paging",
-      "File system implementation",
-      "Synchronization primitives",
-      "Interrupt handling"
-    ],
-    year: "2025"
-  },
-  '7': {
-    title: "UTSC HealthTech Platform - Solution Architecture",
-    description: "I was part of a 5-person team that designed a comprehensive system architecture for a multi-clinic healthcare platform. I led the architecture and implementation of two critical components: the noisy tenant mitigation strategy and the complete Fitbit integration system.",
-    technologies: ["Solution Architecture", "PostgreSQL", "ETL", "System Design", "Node.js", "Express", "Celery", "AWS KMS", "FHIR", "OAuth 2.0"],
-    link: "#",
-    documentLink: architecturePdf,
-    details: [
-      "Architected and implemented the noisy tenant mitigation strategy using clinic-based rate limiting with Redis caching and sliding window algorithm to prevent resource overallocation",
-      "Designed Application Performance Monitoring (APM) integration with Sentry to track per-clinic performance metrics and identify resource-consuming tenants",
-      "Built end-to-end Fitbit OAuth 2.0 integration with PKCE flow, including secure token encryption using per-clinic AWS KMS keys for data isolation",
-      "Implemented asynchronous Fitbit data pipeline using Celery Beat scheduler and workers, with priority-based job queuing for overnight data syncs aligned with patient appointments",
-      "Designed FHIR Observation data transformation to map Fitbit metrics (heart rate, respiratory rate, steps, calories) into clinical standards using LOINC codes for EMR integration"
-    ],
-    features: [
-      "Clinic-based rate limiting with sliding window algorithm and Redis caching",
-      "Application Performance Monitoring per-clinic tracking via Sentry",
-      "OAuth 2.0 Fitbit integration with PKCE and per-clinic encryption keys",
-      "Asynchronous Celery-based data sync pipeline with priority job queuing",
-      "FHIR Observation transformation and EMR data writing",
-      "Separate Fitbit and clinical databases for security isolation",
-      "Automated token refresh with stale connection detection and user notifications"
-    ],
-    year: "2025"
-  }
-}
+import { projects } from '../data/projects'
 
 export default function ProjectDetails() {
   const { id } = useParams()
-  const project = projectsData[id || '']
+  useEffect(() => { window.scrollTo({ top: 0, behavior: 'instant' }); }, [id])
+  const project = projects.find(project => String(project.id) === id)
 
   if (!project) {
     return (
@@ -197,7 +21,7 @@ export default function ProjectDetails() {
   }
 
   return (
-    <div className="min-h-screen bg-cool-blue-lighter py-12">
+    <div className="project-detail min-h-screen bg-cool-blue-lighter py-12">
       <div className="max-w-4xl mx-auto px-4">
         <Link to="/#projects" className="text-cool-brown hover:text-cool-brown-dark font-medium mb-8 inline-block">
           ← Back to projects
@@ -220,8 +44,10 @@ export default function ProjectDetails() {
             <div className="mb-8">
               <video
                 src={project.demo}
+                poster={project.demoPoster}
                 className="w-full rounded-lg border-2 border-cool-blue-dark"
                 controls
+                preload="metadata"
               />
             </div>
           )}
@@ -243,11 +69,11 @@ export default function ProjectDetails() {
 
           <div className="mb-8">
             <h2 className="text-2xl font-semibold mb-4 text-cool-blue-dark">Technologies</h2>
-            <div className="flex flex-wrap gap-2">
+            <div className="project-technologies">
               {project.technologies.map((tech: string) => (
                 <span
                   key={tech}
-                  className="bg-cool-brown text-white px-4 py-2 rounded-full font-medium"
+                  className="project-technology"
                 >
                   {tech}
                 </span>
@@ -256,7 +82,7 @@ export default function ProjectDetails() {
           </div>
 
           <div className="mb-8">
-            <h2 className="text-2xl font-semibold mb-4 text-cool-blue-dark">Overview</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-cool-blue-dark">Project highlights</h2>
             <ul className="space-y-3">
               {project.details.map((detail: string, index: number) => (
                 <li key={index} className="flex gap-3 text-cool-brown-dark">
@@ -265,20 +91,6 @@ export default function ProjectDetails() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div className="mb-8">
-            <h2 className="text-2xl font-semibold mb-4 text-cool-blue-dark">Key Features</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {project.features.map((feature: string, index: number) => (
-                <div
-                  key={index}
-                  className="bg-cool-blue-lighter border-l-4 border-cool-brown p-4 rounded"
-                >
-                  <p className="text-cool-brown-dark font-medium">{feature}</p>
-                </div>
-              ))}
-            </div>
           </div>
 
           <div className="flex gap-4">
