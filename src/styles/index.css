@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 @import "./theme-colors.css";
 
 :root {
@@ -25,14 +25,12 @@ body { margin: 0; min-width: 320px; background: radial-gradient(ellipse at top, 
 html { scroll-behavior: smooth; }
 a, button { -webkit-tap-highlight-color: transparent; }
 a:focus-visible, button:focus-visible { outline: 2px solid #805c45; outline-offset: 5px; }
-.notebook { position: relative; isolation: isolate; max-width: 1190px; margin: 46px auto 60px; background: var(--paper); min-height: 900px; border-radius: 3px 12px 12px 3px; border: 1px solid #c9c2b5; box-shadow: 4px 5px 0 #eeeae0, 7px 8px 0 #c9c2b5, 10px 11px 0 #f6f2e8, 14px 16px 0 #c9c2b5, 20px 28px 50px #493b292b; }
+.notebook { position: relative; isolation: isolate; max-width: none; margin: 16px 22px 36px; background: var(--paper); min-height: 900px; border-radius: 12px; overflow: hidden; border: 1px solid #c9c2b5; box-shadow: 4px 5px 0 #eeeae0, 7px 8px 0 #c9c2b5, 10px 11px 0 #f6f2e8, 14px 16px 0 #c9c2b5, 20px 28px 50px #493b292b; }
 .notebook-content { position: relative; margin-left: 70px; min-height: 900px; border-left: 1px solid var(--margin-rule); background: repeating-linear-gradient(to bottom, transparent 0, transparent 31px, var(--rule) 31px, var(--rule) 32px); background-position: 0 7px; }
-.spiral-binding { position: absolute; left: -25px; top: 20px; bottom: 20px; width: 72px; z-index: 3; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='64' viewBox='0 0 72 64'%3E%3Cellipse cx='53' cy='33' rx='8' ry='10' fill='%23c8c0b3'/%3E%3Cellipse cx='53' cy='32' rx='5' ry='7' fill='%235f5a53'/%3E%3Cpath d='M53 25 C48 14 8 13 7 29 C5 46 45 49 53 37' fill='none' stroke='%2345403a' stroke-width='6'/%3E%3Cpath d='M52 24 C46 15 9 15 8 29 C7 43 44 47 52 36' fill='none' stroke='%23c6c7c5' stroke-width='3'/%3E%3Cpath d='M49 23 C37 18 14 18 10 27' fill='none' stroke='%23f1f0eb' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: repeat-y; }
 .notebook-header { padding: 28px 42px 0; background: var(--paper); border-bottom: 1px solid #acbcd0; }
 .notebook-title-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
 .notebook-title { font-family: var(--handwriting); font-size: 27px; font-weight: 600; letter-spacing: -.04em; white-space: nowrap; }
 .notebook-title span { display: inline-block; color: #a66d4d; font-size: 23px; margin-left: 12px; transform: rotate(13deg); }
-.notebook-subtitle { font-family: var(--handwriting); font-size: 12px; color: #718096; transform: rotate(-2deg); }
 .notebook-tabs { display: flex; gap: 8px; padding: 0 4px; }
 .notebook-tab { position: relative; display: block; padding: 10px 21px 12px; border: 1px solid #283d5818; border-bottom: 0; border-radius: 6px 7px 0 0; font-size: 13px; font-weight: 600; color: #58677b; box-shadow: 1px -2px 3px #283d5806; transition: transform .2s, color .2s; }
 .tab-yellow { background: #f5e7a9; }.tab-pink { background: #f2cfcd; }.tab-blue { background: #cadde9; }.tab-green { background: #d7e4c4; }.tab-peach { background: #efdbbf; }
@@ -79,7 +77,7 @@ section > div > h2::after, .entry-title::after { content: ''; position: absolute
 .agenda-card .text-lg { font-size: 15px; }.agenda-card .text-right { text-align: left; }
 .calendar-badge { font-size: 12px; color: #526582; font-family: var(--handwriting); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .todo-item { position: relative; font-size: 13px; line-height: 1.9; padding-left: 25px; }
-.todo-item::before { content: '✓'; position: absolute; left: 0; top: -1px; color: #526b87; font-family: var(--handwriting); font-size: 17px; }
+.todo-item::before { content: '✓'; position: absolute; left: 0; top: 5px; width: 16px; height: 16px; display: grid; place-items: center; border: 1.5px solid #526b87; border-radius: 2px 3px 2px 1px; color: #526b87; font-family: var(--handwriting); font-size: 17px; line-height: 1; transform: rotate(-3deg); }
 #contact { color: var(--ink); }
 #contact .paper-card { padding: 32px; background: #f2dfbf; border: 0; max-width: 720px; margin: 20px auto; transform: rotate(-1deg); }
 #contact h2 { font-family: var(--handwriting); font-size: 34px; background: transparent; color: var(--ink) !important; }
@@ -92,11 +90,10 @@ section > div > h2::after, .entry-title::after { content: ''; position: absolute
 .project-detail p, .project-detail li { font-size: 14px; line-height: 1.9; }
 .project-detail video { border: 1px solid #cfcac0; border-radius: 3px; }
 @media(min-width:768px) { .agenda-card .text-right { text-align: right; } }
-@media(max-width:1200px) { .notebook { margin: 30px 25px 45px 38px; } }
+@media(max-width:1200px) { .notebook { margin: 20px 22px 40px; } }
 @media(max-width:767px) {
-  .notebook { margin: 17px 12px 30px 23px; min-height: 700px; }
+  .notebook { margin: 12px 12px 28px; min-height: 700px; }
   .notebook-content { margin-left: 27px; min-height: 700px; }
-  .spiral-binding { left: -20px; width: 50px; background-size: 50px 50px; }
   .notebook-header { padding: 20px 14px 0; }
   .notebook-title-row { margin-bottom: 16px; }.notebook-title { font-size: 22px; }.notebook-title span { margin-left: 5px; font-size: 17px; }.notebook-subtitle { display: none; }
   .notebook-tabs { gap: 4px; padding: 0; overflow-x: auto; }.notebook-tab { font-size: 10px; padding: 8px 9px 10px; flex-shrink: 0; }.notebook-tab.is-active { padding-top: 11px; }

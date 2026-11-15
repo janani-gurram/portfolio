@@ -1,4 +1,4 @@
-﻿import { BrowserRouter as Router, Navigate, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Navigate, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import ScrollToSection from './components/ScrollToSection'
 import About from './components/About'
@@ -13,7 +13,6 @@ function App() {
     <Router basename="/portfolio">
       <ScrollToSection />
       <div className="notebook">
-        <div className="spiral-binding" aria-hidden="true" />
         <div className="notebook-content">
           <Header />
           <Routes>

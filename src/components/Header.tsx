@@ -1,4 +1,4 @@
-﻿import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { profile } from '../data/profile'
 
 const tabs = [
@@ -13,8 +13,7 @@ export default function Header() {
   return (
     <header className="notebook-header">
       <div className="notebook-title-row">
-        <NavLink to="/about" className="notebook-title">{profile.name.split(' ')[0]}’s notebook<span aria-hidden="true">✳</span></NavLink>
-        <span className="notebook-subtitle">software, systems & a few ideas</span>
+        <NavLink to="/about" className="notebook-title">{profile.name}<span aria-hidden="true">✳</span></NavLink>
       </div>
       <nav className="notebook-tabs" aria-label="Main navigation">
         {tabs.map(tab => (
