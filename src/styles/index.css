@@ -123,8 +123,8 @@ h1 { font-family: Georgia, serif; font-size: clamp(36px, 4.5vw, 62px); font-weig
 .project-detail iframe { max-width: 100%; aspect-ratio: 16 / 9; height: auto; }
 .project-detail .flex.gap-4 { flex-wrap: wrap; }
 
-/* Warm paper surrounds a blue project collection. */
-#projects > .max-w-6xl { background: var(--surface-muted); padding: 48px; border-radius: 16px; }
+/* Project detail pages. */
+
 #projects .project-card { background: var(--surface-raised); border-color: #c3d0db; }
 .project-detail { background: var(--surface); min-height: calc(100vh - 80px); padding: 48px 24px 88px; }
 .detail-layout { max-width: 1056px; margin: 0 auto; }
@@ -134,8 +134,8 @@ h1 { font-family: Georgia, serif; font-size: clamp(36px, 4.5vw, 62px); font-weig
 .detail-year { font-size: 13px; color: var(--accent); font-variant-numeric: tabular-nums; }
 .project-detail .detail-heading h1 { font-size: clamp(38px, 5vw, 64px); line-height: 1.08; margin: 14px 0 22px; }
 .detail-description { font-size: 18px; line-height: 1.8; color: var(--ink-secondary); max-width: 660px; }
-.detail-media { background: var(--surface-muted); padding: 12px; border-radius: 16px; border: 1px solid var(--border); overflow: hidden; }
-.detail-media video, .detail-media iframe { width: 100%; display: block; border: 0; border-radius: 5px; background: #192e42; aspect-ratio: 16 / 9; max-height: 650px; }
+.detail-media { background: var(--surface-muted); padding: 10px; border-radius: 24px; border: 1px solid var(--border); overflow: hidden; }
+.detail-media video, .detail-media iframe { width: 100%; display: block; border: 0; border-radius: 14px; overflow: hidden; background: #192e42; aspect-ratio: 16 / 9; max-height: 650px; }
 .detail-notes { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; border-top: 1px solid var(--border); margin-top: 48px; padding-top: 36px; }
 .project-detail .detail-notes h2 { font-size: 25px; margin: 0 0 24px; color: var(--ink); }
 .detail-tools > ul { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; }
@@ -146,10 +146,10 @@ h1 { font-family: Georgia, serif; font-size: clamp(36px, 4.5vw, 62px); font-weig
 .detail-highlights li { position: relative; padding: 0 0 22px 23px; line-height: 1.8; color: var(--ink-secondary); font-size: 15px; }
 .detail-highlights li::before { content: ''; position: absolute; left: 0; top: 11px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
 @media (max-width: 767px) {
-  #projects > .max-w-6xl { padding: 30px 16px; border-radius: 10px; }
+
   .project-detail { padding: 26px 20px 60px; }
   .detail-heading { padding: 32px 0 28px; }
   .detail-description { font-size: 16px; }
-  .detail-media { padding: 6px; border-radius: 10px; }
+  .detail-media { padding: 6px; border-radius: 20px; }
   .detail-notes { grid-template-columns: 1fr; gap: 36px; margin-top: 32px; padding-top: 28px; }
 }
