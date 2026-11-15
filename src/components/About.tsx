@@ -19,9 +19,10 @@ export default function About() {
 
           <div className="flex-1">
             <p className="text-lg text-cool-brown-dark leading-relaxed mb-6">
-              I'm a software engineer with a passion for building impactful projects.
-              I have experience in full-stack development, and I enjoy working on both the frontend and backend.
-              I love learning new technologies and am always looking for opportunities to grow and collaborate with others.
+              I'm Janani Sree Gurram, a Computer Science student at the University of Toronto
+              and a software engineer at PointClickCare. My experience spans full-stack development,
+              distributed data systems, and data engineering, with work in React, Django,
+              Spring Boot, and PySpark on Databricks.
             </p>
             <p className="text-lg text-cool-brown-dark leading-relaxed">
               In my free time, I enjoy cooking, painting, and anything creative.

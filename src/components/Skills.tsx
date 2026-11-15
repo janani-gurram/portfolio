@@ -1,16 +1,55 @@
 export default function Skills() {
   const skillCategories = [
     {
-      category: "Frontend",
-      skills: ["React", "TypeScript", "Tailwind CSS", "HTML/CSS", "JavaScript"]
+      "category": "Languages",
+      "skills": [
+        "C++",
+        "Python",
+        "Java",
+        "JavaScript",
+        "TypeScript",
+        "C",
+        "Shell",
+        "Bash",
+        "SQL",
+        "Haskell"
+      ]
     },
     {
-      category: "Backend",
-      skills: ["Node.js", "Express", "MongoDB", "PostgreSQL", "REST APIs"]
+      "category": "Frameworks",
+      "skills": [
+        "Node.js",
+        "Express",
+        "Django",
+        "Next.js",
+        "React",
+        "Spring Boot"
+      ]
     },
     {
-      category: "Tools & DevOps",
-      skills: ["Git", "Docker", "GitHub", "VS Code", "Webpack"]
+      "category": "Databases & Cloud",
+      "skills": [
+        "Firebase",
+        "Databricks",
+        "MongoDB",
+        "PostgreSQL",
+        "Google Cloud",
+        "Microsoft Azure",
+        "AWS"
+      ]
+    },
+    {
+      "category": "Tools",
+      "skills": [
+        "Docker",
+        "Git",
+        "Jenkins",
+        "Jira",
+        "Postman",
+        "Kubernetes",
+        "Spinnaker",
+        "Microsoft 365"
+      ]
     }
   ];
 
@@ -21,7 +60,7 @@ export default function Skills() {
           Skills
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((category) => (
             <div key={category.category} className="bg-white rounded-lg p-8 border-2 border-cool-brown">
               <h3 className="text-2xl font-semibold mb-6 text-cool-brown">
