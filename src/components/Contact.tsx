@@ -1,9 +1,9 @@
 export default function Contact() {
   return (
-    <section id="contact" className="bg-cool-blue-dark text-white py-20 md:py-32">
+    <section id="contact" className="contact-section text-white py-20 md:py-32">
       <div className="max-w-6xl mx-auto px-4 text-center">
         <h2 className="text-4xl font-bold mb-6">
-          Get In Touch
+          Have something in mind?
         </h2>
 
         <p className="text-xl mb-12 text-white max-w-2xl mx-auto">
@@ -35,6 +35,7 @@ export default function Contact() {
             GitHub
           </a>
         </div>
+        <p className="footer-credit">Janani Gurram · Built with care & curiosity.</p>
       </div>
     </section>
   );

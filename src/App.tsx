@@ -17,9 +17,9 @@ function App() {
         <Route path="/" element={
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <About />
+            <WorkExperience />
             <Projects />
             <Skills />
-            <WorkExperience />
             <Contact />
           </div>
         } />

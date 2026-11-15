@@ -1,5 +1,5 @@
-import { projects } from '../data/projects'
 import { Link } from 'react-router-dom'
+import { projects } from '../data/projects'
 
 export default function Projects() {
 
@@ -15,7 +15,7 @@ export default function Projects() {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-cool-blue-lighter border-2 border-cool-blue-dark rounded-lg p-6 hover:shadow-lg transition-shadow duration-200"
+              className="project-card"
             >
               <h3 className="text-xl font-semibold mb-3 text-cool-blue-dark">
                 {project.title}
@@ -25,11 +25,11 @@ export default function Projects() {
                 {project.description}
               </p>
 
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="project-technologies">
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="bg-cool-brown text-white px-3 py-1 rounded-full text-sm"
+                    className="project-technology"
                   >
                     {tech}
                   </span>
