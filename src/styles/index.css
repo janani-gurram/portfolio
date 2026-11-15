@@ -105,3 +105,43 @@ section > div > h2::after, .entry-title::after { content: ''; position: absolute
   .agenda-card h3 { font-size: 21px; }.project-detail { padding: 25px 16px; }#contact .paper-card { padding: 24px 18px; }
 }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation:none !important; transition:none !important; } }
+
+/* Divider tabs sit beyond the paper edge on wider screens. */
+@media (min-width: 768px) {
+  .notebook { margin: 20px 114px 40px 22px; overflow: visible; }
+  .notebook-content { border-radius: 0 12px 12px 0; }
+  .notebook-header { padding-bottom: 1px; border-top-right-radius: 12px; }
+  .notebook-title-row { margin-bottom: 22px; }
+  .notebook-tabs { position: absolute; top: 124px; right: -84px; z-index: 5; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 0; }
+  .notebook-tab { width: 104px; min-height: 52px; padding: 17px 12px 17px 20px; border: 1px solid #283d5826; border-left: 0; border-radius: 0 9px 9px 0; box-shadow: 3px 3px 4px #493b2914; font-family: var(--handwriting); font-size: 12px; transition: width .2s, color .2s; }
+  .notebook-tab:hover { transform: none; width: 112px; color: var(--ink); }
+  .notebook-tab.is-active { width: 116px; margin-top: 0; padding-top: 17px; color: var(--ink); box-shadow: 4px 4px 5px #493b2924; }
+  .notebook-tab.is-active::after { left: 19px; right: 12px; bottom: 12px; }
+}
+
+@media (min-width: 768px) {
+  .notebook-content { isolation: isolate; }
+  .notebook-content::before { content: ''; position: absolute; inset: 0; z-index: -1; background: repeating-linear-gradient(to bottom, transparent 0, transparent 31px, var(--rule) 31px, var(--rule) 32px), var(--paper); background-position: 0 7px; border-radius: 0 12px 12px 0; }
+  .notebook-tabs { z-index: auto; }
+  .notebook-tab { z-index: -2; }
+  .notebook-tab.is-active { z-index: 1; }
+}
+@media (min-width: 768px) {
+  .notebook-tab { padding-left: 24px; padding-right: 8px; font-size: 11px; }
+  .notebook-tab.is-active { padding-left: 20px; font-size: 12px; }
+}
+@media (min-width: 768px) {
+  .notebook { margin-right: 148px; }
+  .notebook-tabs { right: -132px; }
+  .notebook-tab { width: 128px; font-size: 12px; }
+  .notebook-tab:hover { width: 132px; }
+  .notebook-tab.is-active { width: 140px; }
+}
+
+@media (min-width: 768px) {
+  /* Keep the links above the paper so every divider receives clicks. */
+  .notebook-tabs { z-index: 10; }
+  .notebook-tab { z-index: 0; clip-path: inset(0 0 0 8px); }
+  .notebook-tab.is-active { z-index: 1; clip-path: none; }
+  .notebook-tab.is-active::before { content: ''; position: absolute; left: 0; top: -12px; width: 0; height: 0; border-style: solid; border-width: 0 0 12px 8px; border-color: transparent transparent #a79769 transparent; pointer-events: none; }
+}
