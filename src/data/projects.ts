@@ -47,26 +47,6 @@ export const projects: Project[] = [
     "year": "2025"
   },
   {
-    "id": 1,
-    "title": "Tetris in MIPS Assembly",
-    "description": "A Tetris game in MIPS assembly for MARS, with all seven tetrominoes, piece hold, and three difficulty levels.",
-    "technologies": [
-      "MIPS Assembly",
-      "MARS",
-      "Game Development"
-    ],
-    "link": "https://github.com/janani-gurram/tetris-assembly",
-    "demo": tetrisDemoVideo,
-    "details": [
-      "Move and rotate all seven tetrominoes, with collision checks against the board and settled pieces.",
-      "Hold a piece for later and swap it with the active piece using the C key.",
-      "Advance through three levels with increasing gravity as lines are cleared.",
-      "Display the line-clear score in hexadecimal and show the current level on the MARS bitmap display.",
-      "Poll memory-mapped keyboard input and track the board and active piece state in assembly."
-    ],
-    "year": "2024"
-  },
-  {
     "id": 8,
     "title": "Pantry Pal",
     "description": "A web app for tracking pantry ingredients, finding recipes, and planning meals around what you already have.",
@@ -75,6 +55,7 @@ export const projects: Project[] = [
       "React",
       "Express",
       "Firebase",
+      "Google Cloud",
       "Meal Planning"
     ],
     "link": "https://github.com/janani-gurram/project-janani-and-rachel",
@@ -85,29 +66,10 @@ export const projects: Project[] = [
       "Create groups, invite members, view their pantries, and find recipes using the combined ingredients.",
       "Save recipes and schedule meals, linking ingredients already in the pantry and adding missing ones to the shopping list.",
       "Create Google Tasks reminders for buying ingredients and defrosting frozen food ahead of a planned meal.",
+      "Deployed the application on Google Cloud.",
       "Use a Next.js/React interface with an Express API, Firebase authentication, and Firestore storage."
     ],
     "year": "2024"
-  },
-  {
-    "id": 2,
-    "title": "IPv4 Router in Mininet",
-    "description": "A user-space IPv4 router written in C and tested in Mininet, with ARP handling, route lookup, packet forwarding, and ICMP responses.",
-    "technologies": [
-      "C",
-      "Mininet",
-      "POX",
-      "Routing",
-      "Networking"
-    ],
-    "link": "https://github.com/janani-gurram/router-mininet",
-    "details": [
-      "Forward IPv4 packets using longest-prefix route lookup, decrement TTL, and update the IP header checksum.",
-      "Answer ARP requests, cache replies, and release queued packets once the next-hop address is resolved.",
-      "Generate ICMP echo replies and error responses for expired TTLs and unreachable destinations or ports.",
-      "Run the C router in a Mininet topology with POX support and supplied ping, traceroute, and HTTP test tools."
-    ],
-    "year": "2025"
   },
   {
     "id": 3,
@@ -150,26 +112,6 @@ export const projects: Project[] = [
     "year": "2025"
   },
   {
-    "id": 5,
-    "title": "Shopping Mall Android App",
-    "description": "An Android shopping app with separate shopper and store-owner views, product listings, carts, and order tracking.",
-    "technologies": [
-      "Java",
-      "Android",
-      "Firebase",
-      "Mobile Development"
-    ],
-    "link": "https://github.com/janani-gurram/B07-Project",
-    "details": [
-      "Provide separate shopper and store-owner interfaces backed by Firebase Realtime Database.",
-      "Let owners add products to their store and view incoming orders.",
-      "Let shoppers browse store items, add them to a cart, and place orders.",
-      "Copy placed orders to shopper and owner order views and remove ordered items from the cart.",
-      "Separate the login screen into model, view, and presenter classes."
-    ],
-    "year": "2023"
-  },
-  {
     "id": 6,
     "title": "Pintos Operating System Project",
     "description": "A Pintos course project implementing priority scheduling, virtual memory, and growable files across separate assignment branches.",
@@ -185,6 +127,26 @@ export const projects: Project[] = [
       "Replaced busy-wait timer sleeping with a blocked-thread list ordered by wake-up time.",
       "Worked on supplemental page tables, frame management, swapping, and stack growth for virtual memory.",
       "Extended file storage with direct, indirect, and doubly indirect block pointers to support file growth."
+    ],
+    "year": "2025"
+  },
+  {
+    "id": 2,
+    "title": "IPv4 Router in Mininet",
+    "description": "A user-space IPv4 router written in C and tested in Mininet, with ARP handling, route lookup, packet forwarding, and ICMP responses.",
+    "technologies": [
+      "C",
+      "Mininet",
+      "POX",
+      "Routing",
+      "Networking"
+    ],
+    "link": "https://github.com/janani-gurram/router-mininet",
+    "details": [
+      "Forward IPv4 packets using longest-prefix route lookup, decrement TTL, and update the IP header checksum.",
+      "Answer ARP requests, cache replies, and release queued packets once the next-hop address is resolved.",
+      "Generate ICMP echo replies and error responses for expired TTLs and unreachable destinations or ports.",
+      "Run the C router in a Mininet topology with POX support and supplied ping, traceroute, and HTTP test tools."
     ],
     "year": "2025"
   },
@@ -210,5 +172,45 @@ export const projects: Project[] = [
       "Documented the proposal with sequence and component diagrams; these are architecture decisions rather than a deployed platform."
     ],
     "year": "2025"
+  },
+  {
+    "id": 5,
+    "title": "Shopping Mall Android App",
+    "description": "An Android shopping app with separate shopper and store-owner views, product listings, carts, and order tracking.",
+    "technologies": [
+      "Java",
+      "Android",
+      "Firebase",
+      "Mobile Development"
+    ],
+    "link": "https://github.com/janani-gurram/B07-Project",
+    "details": [
+      "Provide separate shopper and store-owner interfaces backed by Firebase Realtime Database.",
+      "Let owners add products to their store and view incoming orders.",
+      "Let shoppers browse store items, add them to a cart, and place orders.",
+      "Copy placed orders to shopper and owner order views and remove ordered items from the cart.",
+      "Separate the login screen into model, view, and presenter classes."
+    ],
+    "year": "2023"
+  },
+  {
+    "id": 1,
+    "title": "Tetris in MIPS Assembly",
+    "description": "A Tetris game in MIPS assembly for MARS, with all seven tetrominoes, piece hold, and three difficulty levels.",
+    "technologies": [
+      "MIPS Assembly",
+      "MARS",
+      "Game Development"
+    ],
+    "link": "https://github.com/janani-gurram/tetris-assembly",
+    "demo": tetrisDemoVideo,
+    "details": [
+      "Move and rotate all seven tetrominoes, with collision checks against the board and settled pieces.",
+      "Hold a piece for later and swap it with the active piece using the C key.",
+      "Advance through three levels with increasing gravity as lines are cleared.",
+      "Display the line-clear score in hexadecimal and show the current level on the MARS bitmap display.",
+      "Poll memory-mapped keyboard input and track the board and active piece state in assembly."
+    ],
+    "year": "2024"
   }
 ];
