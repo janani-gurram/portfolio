@@ -35,7 +35,6 @@ export default function Contact() {
             GitHub
           </a>
         </div>
-        <p className="footer-credit">Janani Gurram · Built with care & curiosity.</p>
       </div>
     </section>
   );
