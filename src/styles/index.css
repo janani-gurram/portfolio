@@ -36,7 +36,7 @@ section { margin: 0; border-radius: 0; }
 section:not(.hero):not(.contact-section) { padding: var(--space-section) 24px; }
 section > .max-w-6xl { max-width: 1120px; }
 section h2 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4vw, 3.25rem); text-align: left; letter-spacing: -.035em; margin-bottom: 42px; }
-.site-header { position: sticky; top: 0; z-index: 50; background: #f8f5f0f2; backdrop-filter: blur(16px); border-bottom: 1px solid #243e5515; }
+.site-header { position: sticky; top: 0; z-index: 50; background: #dce7f0f5; backdrop-filter: blur(16px); border-bottom: 1px solid #b6c8d7; }
 .navigation { max-width: 1168px; margin: auto; padding: 21px 24px; display: flex; align-items: center; justify-content: space-between; }
 .wordmark { font-family: Georgia, serif; font-size: 30px; font-weight: bold; letter-spacing: -1.5px; }
 .wordmark span { color: #956f52; }
@@ -93,7 +93,7 @@ h1 { font-family: Georgia, serif; font-size: clamp(36px, 4.5vw, 62px); font-weig
 @media (max-width: 767px) {
   .desktop-navigation { display: none; }
   .menu-toggle { display: block; border: 1px solid #bacbd9; border-radius: 4px; background: transparent; padding: 7px 12px; font-size: 12px; }
-  .mobile-navigation { position: absolute; top: 100%; left: 0; right: 0; background: #f8f5f0; border-bottom: 1px solid #d5dce2; padding: 14px 24px 22px; display: grid; }
+  .mobile-navigation { position: absolute; top: 100%; left: 0; right: 0; background: #dce7f0; border-bottom: 1px solid #b6c8d7; padding: 14px 24px 22px; display: grid; }
   .mobile-navigation button { text-align: left; padding: 12px 0; background: none; border: 0; font-size: 14px; }
   .hero { padding-top: 42px; }
   .hero-layout { grid-template-columns: 1fr; gap: 40px; }
