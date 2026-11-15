@@ -20,33 +20,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    "id": 9,
-    "title": "Job Matching Platform",
-    "demo": jobMatchingDemoVideo,
-    "demoPoster": jobMatchingDemoPoster,
-    "description": "A swipe-to-match web app connecting job seekers and employers, with mutual matches, interview scheduling, and activity analytics.",
-    "technologies": [
-      "Next.js",
-      "TypeScript",
-      "Express",
-      "PostgreSQL",
-      "REST APIs",
-      "Microsoft Azure",
-      "AWS",
-      "DevOps"
-    ],
-    "link": "https://github.com/UTSC-CSCC01-Software-Engineering-I/term-group-project-bedah",
-    "details": [
-      "Support separate job-seeker and employer profiles, with job postings and candidate browsing.",
-      "Record interest through swipes and surface mutual matches between candidates and employers.",
-      "Provide interview scheduling and analytics for job-seeker activity and employer listings.",
-      "Contributed backend endpoints for employer swiping, interview scheduling, and analytics.",
-      "Deployed the application on Microsoft Azure and provisioned its relational database on AWS.",
-      "Use a Next.js/React frontend and an Express/PostgreSQL backend, with database tests and Cypress end-to-end tests."
-    ],
-    "year": "2025"
-  },
-  {
     "id": 8,
     "title": "Pantry Pal",
     "description": "A web app for tracking pantry ingredients, finding recipes, and planning meals around what you already have.",
@@ -170,6 +143,33 @@ export const projects: Project[] = [
       "Specified nightly Celery jobs that prioritize patients with upcoming appointments, refresh expired tokens, and flag stale connections.",
       "Mapped Fitbit measurements to FHIR Observations using LOINC codes, with separate Fitbit and clinical databases to limit data access.",
       "Documented the proposal with sequence and component diagrams; these are architecture decisions rather than a deployed platform."
+    ],
+    "year": "2025"
+  },
+  {
+    "id": 9,
+    "title": "Job Matching Platform",
+    "demo": jobMatchingDemoVideo,
+    "demoPoster": jobMatchingDemoPoster,
+    "description": "A swipe-to-match web app connecting job seekers and employers, with mutual matches, interview scheduling, and activity analytics.",
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "Express",
+      "PostgreSQL",
+      "REST APIs",
+      "Microsoft Azure",
+      "AWS",
+      "DevOps"
+    ],
+    "link": "https://github.com/UTSC-CSCC01-Software-Engineering-I/term-group-project-bedah",
+    "details": [
+      "Support separate job-seeker and employer profiles, with job postings and candidate browsing.",
+      "Record interest through swipes and surface mutual matches between candidates and employers.",
+      "Provide interview scheduling and analytics for job-seeker activity and employer listings.",
+      "Contributed backend endpoints for employer swiping, interview scheduling, and analytics.",
+      "Deployed the application on Microsoft Azure and provisioned its relational database on AWS.",
+      "Use a Next.js/React frontend and an Express/PostgreSQL backend, with database tests and Cypress end-to-end tests."
     ],
     "year": "2025"
   },
