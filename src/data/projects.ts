@@ -162,7 +162,7 @@ export const projects: Project[] = [
       "AWS",
       "DevOps"
     ],
-    "link": "https://github.com/UTSC-CSCC01-Software-Engineering-I/term-group-project-bedah",
+    "link": "#",
     "details": [
       "Support separate job-seeker and employer profiles, with job postings and candidate browsing.",
       "Record interest through swipes and surface mutual matches between candidates and employers.",
