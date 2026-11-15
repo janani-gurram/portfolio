@@ -6,10 +6,7 @@ export default function Header() {
   const navigate = useNavigate();
 
   const handleNavClick = (sectionId: string) => {
-    navigate('/');
-    setTimeout(() => {
-      window.location.hash = sectionId;
-    }, 0);
+    navigate({ pathname: '/', hash: sectionId });
   };
 
   const navLinks = [

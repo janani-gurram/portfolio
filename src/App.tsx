@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
+import ScrollToSection from './components/ScrollToSection'
 import About from './components/About'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
@@ -10,6 +11,7 @@ import ProjectDetails from './components/ProjectDetails'
 function App() {
   return (
     <Router basename="/portfolio">
+      <ScrollToSection />
       <Header />
       <Routes>
         <Route path="/" element={
